@@ -1,12 +1,9 @@
-package br.com.ufpb.aps.batalhanaval.controller;
+package br.com.ufpb.aps.batalhanaval.model;
 
 import java.io.File;
 import java.io.IOException;
 
-import br.com.ufpb.aps.batalhanaval.model.BatalhaNaval;
-import br.com.ufpb.aps.batalhanaval.model.Embarcacao;
-
-public class BatalhaNavalController {
+public class BatalhaNavalFacade {
 
 	/*
 	 * Facade
@@ -14,15 +11,16 @@ public class BatalhaNavalController {
 
 	private BatalhaNaval bn;
 
-	public BatalhaNavalController() {
+	public BatalhaNavalFacade() {
 		bn = new BatalhaNaval();
 	}
 
 	public boolean carregarEmbarcacoesDoArquivo(File f, int tab)
-			throws IOException {
+			throws IOException, ArquivoInexistenteExcepton, CoordenadaInvalidaException {
 		return bn.carregarEmbarcacoesDoArquivo(f, tab);
 	}
 
+	
 	public String atirar(int jog, int x, int y) {
 		return bn.getTabuleiros()[jog].atirar(x, y);
 	}
